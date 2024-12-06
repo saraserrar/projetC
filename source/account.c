@@ -58,3 +58,26 @@ void saveAccountToCSV(const Account *account, const char *filename) {
 
     fclose(file);
 }
+//fonction pour afficher la liste des comptes avec les attributs demandés
+#include<stdio.h>
+#include<string.h>
+#include"account.h"
+void displayaccounts( char name_file[]){
+    FILE*file=fopen(filename,"r");
+    if(file==NULL){
+            printf("erreur:impossible d'ouvrir le fichier %s \n",filename);
+return ;
+    } 
+Account account;
+printf("\n Liste des comptes enregistrés:\n");
+printf("-------------------------------------------------------------------------------------------------------------------\n");
+printf("Numéro de compte|Nom|Prénom|Solde|Email|Statut du compte\n");
+printf("--------------------------------------------------------------------------------------------------------------------\n");
+while(fscanf(file,"%19[^,],%49[^,],%49[^,],%f,%49[^,],%9[^,]\n",&account.account_number,account.last_name,account.first_name,account.adress,account.email
+,account.phone,account.balance,account.status)==8){
+    printf("%s|%s|%s|%8.3f|%s|%s\n",account.account_number,account.last_name,account.first_name,account.adress,account.email,account.phone,account.balance,account.status);
+
+    printf("--------------------------------------------------------------------------------------------------------------------\n");
+}
+fclose(file);
+}
