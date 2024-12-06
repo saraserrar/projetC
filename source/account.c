@@ -62,7 +62,7 @@ void saveAccountToCSV(const Account *account, const char *filename) {
 #include<stdio.h>
 #include<string.h>
 #include"account.h"
-void displayaccounts( char name_file[]){
+void displayaccounts( const char *name_file[]){
     FILE*file=fopen(filename,"r");
     if(file==NULL){
             printf("erreur:impossible d'ouvrir le fichier %s \n",filename);
